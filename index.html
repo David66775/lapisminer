@@ -617,7 +617,6 @@ window.addEventListener('contextmenu', (event) => {
       
       
       let callbackinterval = window.setInterval(CentralGameLoopCallback, 1000); // run game loop once per second
-      let megasaveinterval = window.setInterval(Megasave, 120000); //save every 2 minutes
       let currencyupdateinterval = window.setInterval(SetValueDisplay, 1); //update display as fast as possible
       
       
@@ -725,24 +724,6 @@ window.addEventListener('contextmenu', (event) => {
         if (currency >= 8900009765089500) {
           p.innerHTML = "Javascript Console";
         }
-        
-        randoval = getRandom(1, 5000000);
-        if (randoval === 500000) {
-          alert("shadow achievment unlocked: Just plain lucky");
-        }
-      }
-      function SetValueDisplay() {
-        if (currency > 1) {
-          currencydisplay.innerHTML = `${currency} Lapis Lazuli Stones`;
-        }
-        if (currency === 1) {
-          currencydisplay.innerHTML = "1 Lapis Lazuli Stone";
-        }
-        if (currency === 0) {
-          currencydisplay.innerHTML = "No Lapis Lazuli Stones";
-        }
-      }
-      function Megasave() {
         localStorage.setItem("currency", currency);
         localStorage.setItem("clickvalue", clickvalue);
         localStorage.setItem("YM", youngminers);
@@ -761,6 +742,21 @@ window.addEventListener('contextmenu', (event) => {
         localStorage.setItem("TM", timemachines);
         localStorage.setItem("ACMB", artificialmoleculecreationbuildings);
         localStorage.setItem("JCB", jsconsolebought);
+        randoval = getRandom(1, 5000000);
+        if (randoval === 500000) {
+          alert("shadow achievment unlocked: Just plain lucky");
+        }
+      }
+      function SetValueDisplay() {
+        if (currency > 1) {
+          currencydisplay.innerHTML = `${currency} Lapis Lazuli Stones`;
+        }
+        if (currency === 1) {
+          currencydisplay.innerHTML = "1 Lapis Lazuli Stone";
+        }
+        if (currency === 0) {
+          currencydisplay.innerHTML = "No Lapis Lazuli Stones";
+        }
       }
     </script>
   </body>
